@@ -1,0 +1,48 @@
+{% extends "::layout/layoutAdmin.html.twig" %}
+{% block body %}
+    <h1>Produit</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ produit.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ produit.prixachat }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ produit.prixvente }}</td>
+            </tr>
+             <tr>
+                <th>Prix</th>
+                <td>{{ produit.tva }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('adminProduits_index') }}">Retour</a>
+        </li>
+		{% if role == 1 or role == 0%}
+            <li>
+                <a href="{{ path('adminProduits_edit', { 'id': produit.id }) }}">Edit</a>
+            </li>
+        {% endif %}
+       {% if role == 1 %}
+                 
+            <li>
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete">
+                {{ form_end(delete_form) }}
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}

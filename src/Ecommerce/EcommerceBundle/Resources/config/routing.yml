@@ -1,0 +1,8 @@
+routingProduits:
+  resource : "@EcommerceBundle/Resources/config/routing/routingProduits.yml"
+  prefix: /
+  
+routingProduitsAdmin:
+  resource: "@EcommerceBundle/Resources/config/routing/routingProduitsAdmin.yml"
+  prefix: /admin/produits
+  
